@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const heroImage = document.querySelector('.hero-image img');
 
         if (heroImage && scrolled < window.innerHeight) {
-            heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+            heroImage.style.transform = `translateY(${scrolled * -0.3}px)`;
         }
     });
 

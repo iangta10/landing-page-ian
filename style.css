@@ -1,9 +1,9 @@
 :root {
     --primary: #ff6b35;
     --text-light: #fff;
-    --bg-dark: #000;
-    --bg-card: #222;
-    --border-light: #555;
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --border-light: #333;
 }
 
 /* Reset and Base Styles */
@@ -20,8 +20,9 @@ html {
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-light);
     overflow-x: hidden;
+    background-color: var(--bg-dark);
 }
 
 .container {
@@ -39,14 +40,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
     font-size: 2.5rem;
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 1rem;
     text-align: center;
 }
 
 .section-subtitle {
     font-size: 1.1rem;
-    color: #666;
+    color: #ccc;
     text-align: center;
     margin-bottom: 3rem;
     max-width: 600px;
@@ -97,13 +98,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-outline {
     background: transparent;
-    color: #2C3E50;
-    border: 2px solid #2C3E50;
+    color: var(--text-light);
+    border: 2px solid var(--text-light);
 }
 
 .btn-outline:hover {
-    background: #2C3E50;
-    color: white;
+    background: var(--text-light);
+    color: var(--bg-dark);
     transform: translateY(-2px);
 }
 
@@ -150,7 +151,7 @@ max-height: 100px;
 
 .nav-link {
     text-decoration: none;
-    color: #2C3E50;
+    color: var(--text-light);
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
@@ -185,18 +186,19 @@ max-height: 100px;
 .nav-toggle span {
     width: 25px;
     height: 3px;
-    background: #2C3E50;
+    background: var(--text-light);
     transition: all 0.3s ease;
 }
 
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, #000 0%, #111 100%);
     display: flex;
     align-items: center;
     position: relative;
     padding-top: 80px;
+    overflow: hidden;
 }
 
 .hero-container {
@@ -211,7 +213,7 @@ max-height: 100px;
 
 .hero-title {
     font-size: 3.5rem;
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 1.5rem;
     line-height: 1.1;
 }
@@ -223,7 +225,7 @@ max-height: 100px;
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: #666;
+    color: #ccc;
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -248,7 +250,7 @@ max-height: 100px;
 
 .stat-label {
     font-size: 0.9rem;
-    color: #666;
+    color: #ccc;
 }
 
 .hero-cta {
@@ -295,7 +297,7 @@ max-height: 100px;
 /* Services Section */
 .services {
     padding: 5rem 0;
-    background: white;
+    background: var(--bg-dark);
 }
 
 .section-header {
@@ -309,7 +311,7 @@ max-height: 100px;
 }
 
 .service-card {
-    background: white;
+    background: var(--bg-card);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -361,12 +363,12 @@ max-height: 100px;
 
 .service-title {
     font-size: 1.5rem;
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
 .service-description {
-    color: #666;
+    color: #ccc;
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -382,7 +384,7 @@ max-height: 100px;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
-    color: #666;
+    color: #ccc;
 }
 
 .service-features i {
@@ -402,14 +404,14 @@ max-height: 100px;
 }
 
 .service-price .period {
-    color: #666;
+    color: #ccc;
     font-size: 1rem;
 }
 
 /* About Section */
 .about {
     padding: 5rem 0;
-    background: #f8f9fa;
+    background: var(--bg-dark);
 }
 
 .about-content {
@@ -421,7 +423,7 @@ max-height: 100px;
 
 .about-description {
     font-size: 1.1rem;
-    color: #666;
+    color: #ccc;
     margin-bottom: 2rem;
     line-height: 1.7;
 }
@@ -450,29 +452,29 @@ max-height: 100px;
 }
 
 .highlight-item h4 {
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 0.25rem;
 }
 
 .highlight-item p {
-    color: #666;
+    color: #ccc;
     font-size: 0.9rem;
 }
 
 .about-philosophy {
-    background: white;
+    background: var(--bg-card);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .about-philosophy h3 {
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
 .about-philosophy p {
-    color: #666;
+    color: #ccc;
     font-style: italic;
     line-height: 1.6;
 }
@@ -515,7 +517,7 @@ max-height: 100px;
 /* Testimonials Section */
 .testimonials {
     padding: 5rem 0;
-    background: white;
+    background: var(--bg-dark);
 }
 
 .testimonials-slider {
@@ -525,7 +527,7 @@ max-height: 100px;
 }
 
 .testimonial-card {
-    background: #f8f9fa;
+    background: var(--bg-card);
     padding: 3rem;
     border-radius: 20px;
     text-align: center;
@@ -554,7 +556,7 @@ max-height: 100px;
 
 .testimonial-text {
     font-size: 1.1rem;
-    color: #666;
+    color: #ccc;
     line-height: 1.7;
     margin-bottom: 2rem;
     font-style: italic;
@@ -568,7 +570,7 @@ max-height: 100px;
 }
 
 .author-info h4 {
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 0.25rem;
 }
 
@@ -627,7 +629,7 @@ max-height: 100px;
 
 .pricing {
     padding: 5rem 0;
-    background: #f8f9fa;
+    background: var(--bg-dark);
 }
 
 .pricing-grid {
@@ -638,7 +640,7 @@ max-height: 100px;
 }
 
 .pricing-card {
-    background: white;
+    background: var(--bg-card);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -681,12 +683,12 @@ max-height: 100px;
 
 .plan-name {
     font-size: 1.5rem;
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 0.5rem;
 }
 
 .plan-description {
-    color: #666;
+    color: #ccc;
     font-size: 0.9rem;
 }
 
@@ -702,7 +704,7 @@ max-height: 100px;
 }
 
 .pricing-price .period {
-    color: #666;
+    color: #ccc;
     font-size: 1rem;
 }
 
@@ -717,7 +719,7 @@ max-height: 100px;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.75rem;
-    color: #666;
+    color: #ccc;
 }
 
 .pricing-features i {
@@ -730,7 +732,7 @@ max-height: 100px;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background: white;
+    background: var(--bg-card);
     padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -744,19 +746,19 @@ max-height: 100px;
 }
 
 .pricing-guarantee h4 {
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 0.25rem;
 }
 
 .pricing-guarantee p {
-    color: #666;
+    color: #ccc;
     font-size: 0.9rem;
 }
 
 /* FAQ Section */
 .faq {
     padding: 5rem 0;
-    background: white;
+    background: var(--bg-dark);
 }
 
 .faq-list {
@@ -765,7 +767,7 @@ max-height: 100px;
 }
 
 .faq-item {
-    background: #f8f9fa;
+    background: var(--bg-card);
     border-radius: 15px;
     margin-bottom: 1rem;
     overflow: hidden;
@@ -786,11 +788,11 @@ max-height: 100px;
 }
 
 .faq-question:hover {
-    background: #e9ecef;
+    background: var(--bg-card);
 }
 
 .faq-question h3 {
-    color: #2C3E50;
+    color: var(--text-light);
     font-size: 1.1rem;
 }
 
@@ -816,14 +818,14 @@ max-height: 100px;
 }
 
 .faq-answer p {
-    color: #666;
+    color: #ccc;
     line-height: 1.6;
 }
 
 /* Contact Section */
 .contact {
     padding: 5rem 0;
-    background: #f8f9fa;
+    background: var(--bg-dark);
 }
 
 .contact-content {
@@ -857,12 +859,12 @@ max-height: 100px;
 }
 
 .contact-item h4 {
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 0.25rem;
 }
 
 .contact-item p {
-    color: #666;
+    color: #ccc;
 }
 
 .contact-social {
@@ -870,7 +872,7 @@ max-height: 100px;
 }
 
 .contact-social h4 {
-    color: #2C3E50;
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
@@ -882,7 +884,7 @@ max-height: 100px;
 .social-link {
     width: 40px;
     height: 40px;
-    background: #2C3E50;
+    background: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -898,7 +900,7 @@ max-height: 100px;
 }
 
 .contact-form {
-    background: white;
+    background: var(--bg-card);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -913,7 +915,7 @@ max-height: 100px;
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--border-light);
     border-radius: 10px;
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
@@ -935,8 +937,8 @@ max-height: 100px;
 
 /* Footer */
 .footer {
-    background: #2C3E50;
-    color: white;
+    background: #0a0a0a;
+    color: var(--text-light);
     padding: 3rem 0 1rem;
 }
 
@@ -1079,7 +1081,7 @@ max-height: 100px;
         left: -100%;
         width: 100%;
         height: calc(100vh - 80px);
-        background: white;
+        background: var(--bg-dark);
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -1207,5 +1209,81 @@ max-height: 100px;
     .contact-form {
         padding: 2rem;
     }
+}
+
+/* Dark Theme Overrides */
+header.header {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.nav-link {
+    color: var(--text-light);
+}
+
+.nav-toggle span {
+    background: var(--text-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-light);
+}
+
+.section-title, .hero-title {
+    color: var(--text-light);
+}
+
+.section-subtitle, .hero-subtitle, .stat-label, .service-price .period {
+    color: #ccc;
+}
+
+.service-title,
+.highlight-item h4,
+.contact-social h4,
+.pricing-card h3,
+.contact-item h4 {
+    color: var(--text-light);
+}
+
+.service-description,
+.highlight-item p,
+.service-features li,
+.pricing-features li,
+.contact-item p {
+    color: #ccc;
+}
+
+.social-link {
+    background: var(--primary);
+}
+
+.services,
+.about,
+.testimonials,
+.pricing,
+.faq,
+.contact,
+.footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.service-card,
+.pricing-card,
+.faq-item,
+.contact-form,
+.contact-item {
+    background: var(--bg-card);
+    color: var(--text-light);
+}
+
+.services p,
+.about p,
+.testimonials p,
+.pricing p,
+.faq p,
+.contact p,
+.footer p,
+.footer li {
+    color: #ccc;
 }
 
