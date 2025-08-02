@@ -130,148 +130,144 @@ document.addEventListener('DOMContentLoaded', function () {
     const pricingPlans = {
         presencial: [
             {
-                name: 'Plano Inicial',
-                description: 'Treinos presenciais 2x por semana',
-                price: 'R$ 497',
-                period: '/mês',
+                id: 'mensal',
+                name: 'Presencial Mensal',
+                description: 'Treinos 100% personalizados, sem fidelização mínima.',
+                price: 50,
+                period: '/aula',
+                weeks: 4,
                 features: [
-                    '2 sessões presenciais por semana',
-                    'Avaliação física inicial',
-                    'Planejamento de treino',
-                    'Suporte via WhatsApp',
-                    'Acesso ao app'
+                    'Avaliação física presencial no início e ao final do mês',
+                    'Acompanhamento contínuo',
+                    'Bônus por indicação'
                 ],
-                button: { text: 'Começar Agora', class: 'btn-outline' },
-                featured: false
+                button: { text: 'Começar agora', class: 'btn-primary' },
+                featured: false,
+                duo: true
             },
             {
-                name: 'Plano Intensivo',
-                description: 'Resultados rápidos com acompanhamento próximo',
-                price: 'R$ 797',
-                period: '/mês',
+                id: 'trimestral',
+                name: 'Presencial Trimestral',
+                description: 'Compromisso de 3 meses com desconto progressivo.',
+                price: 45,
+                period: '/aula',
+                weeks: 12,
                 features: [
-                    '3 sessões presenciais por semana',
-                    'Avaliações quinzenais',
-                    'Plano nutricional básico',
-                    'Suporte prioritário',
-                    'App exclusivo'
+                    'Avaliação física presencial no início e ao final do ciclo',
+                    'Programa ajustado por progresso',
+                    'Bônus por indicação'
                 ],
-                button: { text: 'Escolher Plano', class: 'btn-primary' },
-                featured: true
+                button: { text: 'Assinar trimestre', class: 'btn-primary' },
+                featured: true,
+                duo: true
             },
             {
-                name: 'Plano Elite',
-                description: 'Experiência completa personalizada',
-                price: 'R$ 1.197',
-                period: '/mês',
+                id: 'semestral',
+                name: 'Presencial Semestral',
+                description: 'Melhor custo-benefício para quem quer consistência.',
+                price: 35,
+                period: '/aula',
+                weeks: 24,
                 features: [
-                    'Sessões ilimitadas',
-                    'Liberação miofascial semanal',
-                    'Plano nutricional completo',
-                    'Treino em domicílio',
-                    'Acompanhamento 24/7'
+                    'Avaliação física presencial no início e ao final do ciclo',
+                    'Planejamento de longo prazo',
+                    'Bônus por indicação'
                 ],
-                button: { text: 'Experiência VIP', class: 'btn-outline' },
-                featured: false
+                button: { text: 'Assinar semestre', class: 'btn-primary' },
+                featured: false,
+                duo: true
             }
         ],
         online: [
             {
-                name: 'Plano Básico',
-                description: 'Ideal para quem quer começar',
-                price: 'R$ 297',
+                name: 'Online Mensal',
+                description: 'Consultoria remota com flexibilidade.',
+                price: 'R$ 80',
                 period: '/mês',
                 features: [
-                    'Consultoria online completa',
-                    'Plano de treino personalizado',
-                    'Suporte via WhatsApp',
-                    'App exclusivo de treino',
-                    'Relatórios mensais'
+                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
+                    'Planilhas semanais',
+                    'Correção de vídeos',
+                    'Suporte via WhatsApp'
                 ],
-                button: { text: 'Começar Agora', class: 'btn-outline' },
+                button: { text: 'Começar online', class: 'btn-outline' },
                 featured: false
             },
             {
-                name: 'Plano Premium',
-                description: 'Para resultados acelerados',
-                price: 'R$ 597',
-                period: '/mês',
+                name: 'Online Trimestral',
+                description: 'Compromisso de 3 meses com desconto.',
+                price: 'R$ 70',
+                period: '/mês (R$ 210 total)',
                 features: [
-                    'Tudo do plano básico',
-                    '4 sessões presenciais/mês',
-                    'Plano nutricional detalhado',
-                    'Suporte prioritário 24/7',
-                    'Avaliação física mensal'
+                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
+                    'Ajustes baseados em progresso',
+                    'Suporte contínuo'
                 ],
-                button: { text: 'Escolher Plano', class: 'btn-primary' },
+                button: { text: 'Assinar trimestre', class: 'btn-primary' },
                 featured: true
             },
             {
-                name: 'Plano VIP',
-                description: 'Experiência completa',
-                price: 'R$ 897',
-                period: '/mês',
+                name: 'Online Semestral',
+                description: 'Plano de longo prazo otimizado.',
+                price: 'R$ 60',
+                period: '/mês (R$ 360 total)',
                 features: [
-                    'Tudo do plano premium',
-                    'Sessões ilimitadas presenciais',
-                    'Liberação miofascial semanal',
-                    'Acompanhamento nutricional',
-                    'Treino em domicílio'
+                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
+                    'Revisão estratégica',
+                    'Suporte e correção de vídeos'
                 ],
-                button: { text: 'Experiência VIP', class: 'btn-outline' },
+                button: { text: 'Assinar semestre', class: 'btn-outline' },
                 featured: false
             }
         ],
         liberacao: [
             {
-                name: 'Sessão Única',
-                description: 'Para aliviar dores pontuais',
-                price: 'R$ 120',
+                name: 'Liberação Miofascial Avulsa',
+                description: 'Alívio de tensões pontuais e melhora de mobilidade.',
+                price: 'R$ 80',
                 period: '/sessão',
                 features: [
-                    'Liberação miofascial',
-                    'Ventosaterapia',
-                    'Duração de 50 minutos',
-                    'Avaliação rápida',
-                    'Orientações pós-sessão'
+                    'Avaliação postural rápida incluída',
+                    'Aplicação individualizada'
                 ],
-                button: { text: 'Agendar', class: 'btn-outline' },
+                button: { text: 'Agendar sessão', class: 'btn-outline' },
                 featured: false
             },
             {
-                name: 'Pacote 5 Sessões',
-                description: 'Tratamento contínuo para melhores resultados',
-                price: 'R$ 550',
+                name: 'Pacote 4 Sessões',
+                description: 'Série para consistência e recuperação.',
+                price: 'R$ 280',
                 period: '/pacote',
                 features: [
-                    '5 sessões personalizadas',
-                    'Avaliação detalhada',
-                    'Acompanhamento de evolução',
-                    'Orientações de mobilidade',
-                    'Suporte via WhatsApp'
+                    'Avaliação postural inicial',
+                    'Sequência planejada',
+                    'Pode ser combinada com treino'
                 ],
-                button: { text: 'Escolher Pacote', class: 'btn-primary' },
+                button: { text: 'Comprar pacote', class: 'btn-primary' },
                 featured: true
             },
             {
-                name: 'Pacote 10 Sessões',
-                description: 'Foco total em recuperação e performance',
-                price: 'R$ 1.000',
-                period: '/pacote',
+                name: 'Liberação Mensal',
+                description: 'Manutenção regular para mobilidade e performance.',
+                price: 'R$ 150',
+                period: '/mês (2 sessões)',
                 features: [
-                    '10 sessões completas',
-                    'Reavaliação a cada 5 sessões',
-                    'Liberação de pontos gatilho',
-                    'Plano de exercícios complementares',
-                    'Suporte contínuo'
+                    'Avaliação postural em cada ciclo mensal',
+                    'Prioridade de agendamento'
                 ],
-                button: { text: 'Experiência Completa', class: 'btn-outline' },
+                button: { text: 'Assinar mensal', class: 'btn-outline' },
                 featured: false
             }
         ]
     };
 
+    function formatPrice(value) {
+        return 'R$ ' + Number(value).toFixed(2).replace('.', ',');
+    }
+
     function createPlanCard(plan) {
+        const isNumeric = typeof plan.price === 'number';
+        const priceDisplay = isNumeric ? formatPrice(plan.price) : plan.price;
         return `
             <div class="pricing-card ${plan.featured ? 'featured' : ''}">
                 ${plan.featured ? '<div class="pricing-badge">Mais Popular</div>' : ''}
@@ -280,8 +276,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p class="plan-description">${plan.description}</p>
                 </div>
                 <div class="pricing-price">
-                    <span class="price">${plan.price}</span>
+                    <span class="price"${isNumeric ? ` data-individual="${plan.price}" data-duo="${(plan.price * 0.85).toFixed(2)}"` : ''}>${priceDisplay}</span>
                     <span class="period">${plan.period}</span>
+                    ${plan.duo ? '<button class="btn-duo">Duo</button>' : ''}
                 </div>
                 <ul class="pricing-features">
                     ${plan.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
@@ -291,9 +288,83 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     }
 
+    function initDuoToggle() {
+        document.querySelectorAll('#pricing .btn-duo').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.pricing-card');
+                const priceEl = card.querySelector('.price');
+                const periodEl = card.querySelector('.period');
+                const isActive = btn.classList.toggle('active');
+                if (isActive) {
+                    priceEl.textContent = formatPrice(priceEl.dataset.duo);
+                    periodEl.textContent = '/aula por pessoa';
+                    btn.textContent = 'Individual';
+                } else {
+                    priceEl.textContent = formatPrice(priceEl.dataset.individual);
+                    periodEl.textContent = '/aula';
+                    btn.textContent = 'Duo';
+                }
+            });
+        });
+    }
+
+    function initPresencialCalculator() {
+        const calcHtml = `
+            <div id="presencial-calculator" class="calculator">
+                <h4>Calcule o valor total</h4>
+                <div class="calc-field">
+                    <label for="calc-frequency">Vezes por semana</label>
+                    <input type="number" id="calc-frequency" min="1" max="7">
+                </div>
+                <div class="calc-field">
+                    <label for="calc-plan">Plano</label>
+                    <select id="calc-plan">
+                        <option value="">Selecione</option>
+                        ${pricingPlans.presencial.map(p => `<option value="${p.id}">${p.name}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label><input type="checkbox" id="calc-duo"> Duo</label>
+                </div>
+                <div id="calc-result"></div>
+            </div>
+        `;
+        pricingGrid.insertAdjacentHTML('beforeend', calcHtml);
+
+        const freqInput = document.getElementById('calc-frequency');
+        const planSelect = document.getElementById('calc-plan');
+        const duoCheckbox = document.getElementById('calc-duo');
+        const result = document.getElementById('calc-result');
+
+        function updateCalc() {
+            const freq = parseInt(freqInput.value, 10);
+            const planId = planSelect.value;
+            if (!freq || !planId) {
+                result.textContent = '';
+                return;
+            }
+            const plan = pricingPlans.presencial.find(p => p.id === planId);
+            let total = plan.price * freq * plan.weeks;
+            if (duoCheckbox.checked) {
+                total = total * 2 * 0.85;
+                result.textContent = `Total para a dupla: ${formatPrice(total)}`;
+            } else {
+                result.textContent = `Total: ${formatPrice(total)}`;
+            }
+        }
+
+        freqInput.addEventListener('input', updateCalc);
+        planSelect.addEventListener('change', updateCalc);
+        duoCheckbox.addEventListener('change', updateCalc);
+    }
+
     function renderPricing(category) {
         if (!pricingPlans[category]) return;
         pricingGrid.innerHTML = pricingPlans[category].map(createPlanCard).join('');
+        if (category === 'presencial') {
+            initDuoToggle();
+            initPresencialCalculator();
+        }
     }
 
     pricingButtons.forEach(btn => {
@@ -304,7 +375,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Initialize pricing section
     const activePricing = document.querySelector('#pricing .sub-tab-btn.active');
     if (activePricing) {
         renderPricing(activePricing.dataset.category);
