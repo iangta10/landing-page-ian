@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Pricing plans toggle
     const pricingButtons = document.querySelectorAll('#pricing .sub-tab-btn');
     const pricingGrid = document.querySelector('#pricing .pricing-grid');
+    let baseCardHeight;
 
     const pricingPlans = {
         presencial: [
@@ -274,11 +275,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="pricing-header">
                     <h3 class="plan-name">${plan.name}</h3>
                     <p class="plan-description">${plan.description}</p>
+                    ${plan.duo ? `
+                    <div class="pricing-toggle">
+                        <button class="btn-duo active" data-type="individual">Individual</button>
+                        <button class="btn-duo" data-type="duo">Duo</button>
+                    </div>` : ''}
                 </div>
                 <div class="pricing-price">
                     <span class="price"${isNumeric ? ` data-individual="${plan.price}" data-duo="${(plan.price * 0.85).toFixed(2)}"` : ''}>${priceDisplay}</span>
                     <span class="period">${plan.period}</span>
-                    ${plan.duo ? '<button class="btn-duo">Duo</button>' : ''}
                 </div>
                 <ul class="pricing-features">
                     ${plan.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
@@ -289,21 +294,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function initDuoToggle() {
-        document.querySelectorAll('#pricing .btn-duo').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const card = btn.closest('.pricing-card');
-                const priceEl = card.querySelector('.price');
-                const periodEl = card.querySelector('.period');
-                const isActive = btn.classList.toggle('active');
-                if (isActive) {
-                    priceEl.textContent = formatPrice(priceEl.dataset.duo);
-                    periodEl.textContent = '/aula por pessoa';
-                    btn.textContent = 'Individual';
-                } else {
-                    priceEl.textContent = formatPrice(priceEl.dataset.individual);
-                    periodEl.textContent = '/aula';
-                    btn.textContent = 'Duo';
-                }
+        document.querySelectorAll('#pricing .pricing-card').forEach(card => {
+            const priceEl = card.querySelector('.price');
+            const periodEl = card.querySelector('.period');
+            const btnInd = card.querySelector('[data-type="individual"]');
+            const btnDuo = card.querySelector('[data-type="duo"]');
+            if (!btnInd || !btnDuo) return;
+
+            btnInd.addEventListener('click', () => {
+                priceEl.textContent = formatPrice(priceEl.dataset.individual);
+                periodEl.textContent = '/aula';
+                btnInd.classList.add('active');
+                btnDuo.classList.remove('active');
+            });
+
+            btnDuo.addEventListener('click', () => {
+                priceEl.textContent = formatPrice(priceEl.dataset.duo);
+                periodEl.textContent = '/aula por pessoa';
+                btnDuo.classList.add('active');
+                btnInd.classList.remove('active');
             });
         });
     }
@@ -361,8 +370,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderPricing(category) {
         if (!pricingPlans[category]) return;
         pricingGrid.innerHTML = pricingPlans[category].map(createPlanCard).join('');
+        if (!baseCardHeight) {
+            baseCardHeight = Math.max(...Array.from(pricingGrid.querySelectorAll('.pricing-card')).map(c => c.offsetHeight));
+            document.documentElement.style.setProperty('--pricing-card-height', baseCardHeight + 'px');
+        }
+        initDuoToggle();
         if (category === 'presencial') {
-            initDuoToggle();
             initPresencialCalculator();
         }
     }
