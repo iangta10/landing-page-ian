@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return 'R$ ' + Number(value).toFixed(2).replace('.', ',');
     }
 
-    function createPlanCard(plan) {
+    function createPlanCard(plan, category) {
         const isNumeric = typeof plan.price === 'number';
         const priceDisplay = isNumeric ? formatPrice(plan.price) : plan.price;
         return `
@@ -275,16 +275,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="pricing-header">
                     <h3 class="plan-name">${plan.name}</h3>
                     <p class="plan-description">${plan.description}</p>
-                    ${plan.duo ? `
-                    <div class="pricing-toggle">
-                        <button class="btn-duo active" data-type="individual">Individual</button>
-                        <button class="btn-duo" data-type="duo">Duo</button>
-                    </div>` : ''}
                 </div>
                 <div class="pricing-price">
                     <span class="price"${isNumeric ? ` data-individual="${plan.price}" data-duo="${(plan.price * 0.85).toFixed(2)}"` : ''}>${priceDisplay}</span>
                     <span class="period">${plan.period}</span>
                 </div>
+                ${category === 'presencial' ? `
+                <div class="calc-wrapper">
+                    <div class="calc-line">
+                        Treinos/sem: <input type="number" class="calc-times" min="1" max="7"> &nbsp;--&nbsp; Frequência:
+                        <select class="calc-frequency">
+                            <option value=""></option>
+                            ${pricingPlans.presencial.map(p => `<option value="${p.id}">${p.id.charAt(0).toUpperCase() + p.id.slice(1)}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="calc-line">
+                        Plano:
+                        <select class="calc-plan">
+                            <option value="individual">Individual</option>
+                            <option value="duo">Duo</option>
+                        </select>
+                        &nbsp;--&nbsp; Valor total: <span class="calc-total"></span>
+                    </div>
+                </div>` : ''}
                 <ul class="pricing-features">
                     ${plan.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
                 </ul>
@@ -318,58 +331,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function initPresencialCalculator() {
-        const calcHtml = `
-            <div id="presencial-calculator" class="calculator">
-                <h4>Calcule o valor total</h4>
-                <div class="calc-field">
-                    <label for="calc-frequency">Vezes por semana</label>
-                    <input type="number" id="calc-frequency" min="1" max="7">
-                </div>
-                <div class="calc-field">
-                    <label for="calc-plan">Plano</label>
-                    <select id="calc-plan">
-                        <option value="">Selecione</option>
-                        ${pricingPlans.presencial.map(p => `<option value="${p.id}">${p.name}</option>`).join('')}
-                    </select>
-                </div>
-                <div class="calc-field">
-                    <label><input type="checkbox" id="calc-duo"> Duo</label>
-                </div>
-                <div id="calc-result"></div>
-            </div>
-        `;
-        pricingGrid.insertAdjacentHTML('beforeend', calcHtml);
+        document.querySelectorAll('#pricing .pricing-card').forEach(card => {
+            const timesInput = card.querySelector('.calc-times');
+            const freqSelect = card.querySelector('.calc-frequency');
+            const planSelect = card.querySelector('.calc-plan');
+            const totalEl = card.querySelector('.calc-total');
+            if (!timesInput || !freqSelect || !planSelect || !totalEl) return;
 
-        const freqInput = document.getElementById('calc-frequency');
-        const planSelect = document.getElementById('calc-plan');
-        const duoCheckbox = document.getElementById('calc-duo');
-        const result = document.getElementById('calc-result');
-
-        function updateCalc() {
-            const freq = parseInt(freqInput.value, 10);
-            const planId = planSelect.value;
-            if (!freq || !planId) {
-                result.textContent = '';
-                return;
+            function updateCalc() {
+                const times = parseInt(timesInput.value, 10);
+                const freqId = freqSelect.value;
+                if (!times || !freqId) {
+                    totalEl.textContent = '';
+                    return;
+                }
+                const planData = pricingPlans.presencial.find(p => p.id === freqId);
+                let total = planData.price * times * planData.weeks;
+                if (planSelect.value === 'duo') {
+                    total = total * 2 * 0.85;
+                }
+                totalEl.textContent = formatPrice(total);
             }
-            const plan = pricingPlans.presencial.find(p => p.id === planId);
-            let total = plan.price * freq * plan.weeks;
-            if (duoCheckbox.checked) {
-                total = total * 2 * 0.85;
-                result.textContent = `Total para a dupla: ${formatPrice(total)}`;
-            } else {
-                result.textContent = `Total: ${formatPrice(total)}`;
-            }
-        }
 
-        freqInput.addEventListener('input', updateCalc);
-        planSelect.addEventListener('change', updateCalc);
-        duoCheckbox.addEventListener('change', updateCalc);
+            timesInput.addEventListener('input', updateCalc);
+            freqSelect.addEventListener('change', updateCalc);
+            planSelect.addEventListener('change', updateCalc);
+        });
     }
 
     function renderPricing(category) {
         if (!pricingPlans[category]) return;
-        pricingGrid.innerHTML = pricingPlans[category].map(createPlanCard).join('');
+        pricingGrid.innerHTML = pricingPlans[category].map(plan => createPlanCard(plan, category)).join('');
         if (!baseCardHeight) {
             baseCardHeight = Math.max(...Array.from(pricingGrid.querySelectorAll('.pricing-card')).map(c => c.offsetHeight));
             document.documentElement.style.setProperty('--pricing-card-height', baseCardHeight + 'px');
