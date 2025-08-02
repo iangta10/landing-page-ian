@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian Siqueira - Personal Trainer</title>
+    <meta name="description" content="Personal trainer especializado em treino presencial, consultoria online e liberação miofascial. Resultados comprovados e acompanhamento profissional.">
+    <meta name="keywords" content="personal trainer, treino presencial, consultoria online, liberação miofascial, fitness, musculação">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Personal Trainer - Transforme Seu Corpo e Sua Vida">
+    <meta property="og:description" content="Personal trainer especializado em treino presencial, consultoria online e liberação miofascial.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/hero-trainer.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="assets/images/logo ian personal.png" alt="">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#services" class="nav-link">Serviços</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
+                    <li><a href="#testimonials" class="nav-link">Depoimentos</a></li>
+                    <li><a href="#pricing" class="nav-link">Planos</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transforme Seu <span class="highlight">Corpo</span> e Sua <span class="highlight">Vida</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Personal trainer especializado em treino presencial, consultoria online e liberação miofascial. 
+                    Resultados comprovados e acompanhamento profissional.
+                </p>
+                <!--<div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Clientes Transformados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfação dos Clientes</span>
+                    </div>
+                </div>-->
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Agende Sua Avaliação Gratuita
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Conheça os Serviços
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/musculação.jpg" alt="Personal Trainer Profissional">
+                
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Serviços Especializados</h2>
+                <p class="section-subtitle">Soluções personalizadas para cada objetivo e necessidade</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="service-title">Treino Presencial</h3>
+                    <p class="service-description">
+                        Acompanhamento personalizado em academia ou domicílio com correção de postura, 
+                        motivação constante e resultados rápidos.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Avaliação física completa</li>
+                        <li><i class="fas fa-check"></i> Treino personalizado</li>
+                        <li><i class="fas fa-check"></i> Flexibilidade de horários</li>
+                        <li><i class="fas fa-check"></i> Sozinho ou em dupla</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">A partir de R$ 34</span>
+                        <span class="period">/sessão</span>
+                    </div>
+                    <a href="#contact" class="btn btn-outline">Saiba Mais</a>
+                </div>
+
+                <div class="service-card featured">
+                    <div class="service-badge">Mais Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="service-title">Consultoria Online</h3>
+                    <p class="service-description">
+                        Planos de treino personalizados via app com flexibilidade de horários, 
+                        acompanhamento diário e custo acessível.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> App exclusivo de treino</li>
+                        <li><i class="fas fa-check"></i> Avaliação online ou presencial</li>
+                        <li><i class="fas fa-check"></i> Suporte via WhatsApp</li>
+                        <li><i class="fas fa-check"></i> Relatórios de progresso</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">A partir de R$ 60</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Começar Agora</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3 class="service-title">Liberação Miofascial</h3>
+                    <p class="service-description">
+                        Técnicas especializadas de liberação e ventosaterapia para alívio de tensões musculares, redução de dores e 
+                        melhora da mobilidade.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Técnicas avançadas</li>
+                        <li><i class="fas fa-check"></i> Alívio imediato de dores</li>
+                        <li><i class="fas fa-check"></i> Melhora da mobilidade</li>
+                        <li><i class="fas fa-check"></i> Recuperação muscular</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">A partir de R$ 30</span>
+                        <span class="period">/sessão</span>
+                    </div>
+                    <a href="#contact" class="btn btn-outline">Agendar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Conheça Seu Personal Trainer</h2>
+                    <p class="about-description">
+                        Sou personal trainer e especialista em liberação miofascial. 
+                        Ajudo pessoas a se reconectarem com o corpo — alívio de dores, mais mobilidade ou melhor desempenho — com planos individuais (online ou presencial) que respeitam sua rotina, limites e objetivo.
+                    </p>
+                    <!--<div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4>Formação Acadêmica</h4>
+                                <p>Educação Física - Universidade Federal</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4>Certificações</h4>
+                                <p>CREF, Liberação Miofascial, Nutrição Esportiva</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h4>Especialidades</h4>
+                                <p>Hipertrofia, Emagrecimento, Reabilitação</p>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="about-philosophy">
+                        <h3>Minha Filosofia</h3>
+                        <p>
+                            "Treinar deve ser leve, consistente e com propósito. Combino técnica e atenção personalizada, 
+                            sem fórmulas prontas: cada plano é moldado para você. 
+                            Foco em resultados reais, com acompanhamento claro e contínuo, presencial quando possível, 
+                            para garantir evolução sustentável."
+                        </p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/musculação.jpg" alt="Personal Trainer em ação">
+                    <!--<div class="about-experience">
+                        <span class="experience-number">5+</span>
+                        <span class="experience-text">Anos de<br>Experiência</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section 
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Transformações Reais de Nossos Clientes</h2>
+                <p class="section-subtitle">Veja os resultados alcançados por quem confiou no nosso trabalho</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Em 6 meses perdi 15kg e ganhei muito mais disposição. O acompanhamento personalizado 
+                        fez toda a diferença. Recomendo para todos que querem resultados reais!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Maria Silva</h4>
+                            <span>Perdeu 15kg em 6 meses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "A consultoria online me permitiu treinar no meu ritmo e horário. Os resultados 
+                        apareceram rapidamente e o suporte foi excepcional. Muito satisfeito!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>João Santos</h4>
+                            <span>Ganhou 8kg de massa muscular</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "As sessões de liberação miofascial acabaram com minhas dores nas costas. 
+                        Profissional extremamente competente e atencioso. Recomendo demais!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Ana Costa</h4>
+                            <span>Alívio completo de dores</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-nav">
+                <button class="nav-btn active" data-slide="0"></button>
+                <button class="nav-btn" data-slide="1"></button>
+                <button class="nav-btn" data-slide="2"></button>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Escolha o Plano Ideal Para Você</h2>
+                <p class="section-subtitle">Planos flexíveis para todos os objetivos e orçamentos</p>
+            </div>
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active" data-subtab="personal-presencial">Presencial</button>
+                <button class="sub-tab-btn" data-subtab="personal-online">Online</button>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Plano Básico</h3>
+                        <p class="plan-description">Ideal para quem quer começar</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">R$ 297</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Consultoria online completa</li>
+                        <li><i class="fas fa-check"></i> Plano de treino personalizado</li>
+                        <li><i class="fas fa-check"></i> Suporte via WhatsApp</li>
+                        <li><i class="fas fa-check"></i> App exclusivo de treino</li>
+                        <li><i class="fas fa-check"></i> Relatórios mensais</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Começar Agora</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Mais Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Plano Premium</h3>
+                        <p class="plan-description">Para resultados acelerados</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">R$ 597</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Tudo do plano básico</li>
+                        <li><i class="fas fa-check"></i> 4 sessões presenciais/mês</li>
+                        <li><i class="fas fa-check"></i> Plano nutricional detalhado</li>
+                        <li><i class="fas fa-check"></i> Suporte prioritário 24/7</li>
+                        <li><i class="fas fa-check"></i> Avaliação física mensal</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Escolher Plano</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Plano VIP</h3>
+                        <p class="plan-description">Experiência completa</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">R$ 897</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Tudo do plano premium</li>
+                        <li><i class="fas fa-check"></i> Sessões ilimitadas presenciais</li>
+                        <li><i class="fas fa-check"></i> Liberação miofascial semanal</li>
+                        <li><i class="fas fa-check"></i> Acompanhamento nutricional</li>
+                        <li><i class="fas fa-check"></i> Treino em domicílio</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Experiência VIP</a>
+                </div>
+            </div>
+            <div class="pricing-guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>Garantia de 30 dias</h4>
+                    <p>Se não ficar satisfeito, devolvemos 100% do seu dinheiro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre nossos serviços</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como funciona a primeira consulta?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A primeira consulta é gratuita e inclui avaliação física completa, análise de objetivos, histórico de saúde e definição do plano de treino personalizado. Dura aproximadamente 60 minutos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Qual a duração dos treinos presenciais?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Os treinos presenciais têm duração de 60 minutos, incluindo aquecimento, treino principal e alongamento. Podem ser ajustados conforme sua disponibilidade e objetivos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Posso cancelar a qualquer momento?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, todos os planos são mensais e podem ser cancelados a qualquer momento com 30 dias de antecedência. Não há multa ou taxa de cancelamento.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vocês atendem em domicílio?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, oferecemos atendimento domiciliar para treinos presenciais e liberação miofascial. Cobrimos toda a região metropolitana com taxa adicional de deslocamento.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como funciona a consultoria online?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A consultoria online inclui app exclusivo com treinos personalizados, acompanhamento diário via WhatsApp, ajustes semanais no plano e relatórios mensais de progresso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pronto Para Começar Sua Transformação?</h2>
+                <p class="section-subtitle">Entre em contato e agende sua avaliação gratuita</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(11) 99999-9999</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>contato@fitpro.com.br</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>São Paulo, SP - Atendimento em toda região metropolitana</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <h4>Redes Sociais</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Seu telefone/WhatsApp" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">Selecione o serviço de interesse</option>
+                            <option value="presencial">Treino Presencial</option>
+                            <option value="online">Consultoria Online</option>
+                            <option value="miofascial">Liberação Miofascial</option>
+                            <option value="combo">Combinação de Serviços</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Conte-nos sobre seus objetivos e expectativas" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>FitPro</span>
+                    </div>
+                    <p>Transformando vidas através do fitness com acompanhamento personalizado e resultados comprovados.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#services">Treino Presencial</a></li>
+                        <li><a href="#services">Consultoria Online</a></li>
+                        <li><a href="#services">Liberação Miofascial</a></li>
+                        <li><a href="#pricing">Planos e Preços</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#testimonials">Depoimentos</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@fitpro.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FitPro Personal Trainer. Todos os direitos reservados.</p>
+                <div class="footer-certifications">
+                    <span><i class="fas fa-certificate"></i> CREF 123456-G/SP</span>
+                    <span><i class="fas fa-shield-alt"></i> Profissional Certificado</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+
