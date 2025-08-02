@@ -123,6 +123,193 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(btn.dataset.subtab).classList.add('active');
     }));
 
+    // Pricing plans toggle
+    const pricingButtons = document.querySelectorAll('#pricing .sub-tab-btn');
+    const pricingGrid = document.querySelector('#pricing .pricing-grid');
+
+    const pricingPlans = {
+        presencial: [
+            {
+                name: 'Plano Inicial',
+                description: 'Treinos presenciais 2x por semana',
+                price: 'R$ 497',
+                period: '/mês',
+                features: [
+                    '2 sessões presenciais por semana',
+                    'Avaliação física inicial',
+                    'Planejamento de treino',
+                    'Suporte via WhatsApp',
+                    'Acesso ao app'
+                ],
+                button: { text: 'Começar Agora', class: 'btn-outline' },
+                featured: false
+            },
+            {
+                name: 'Plano Intensivo',
+                description: 'Resultados rápidos com acompanhamento próximo',
+                price: 'R$ 797',
+                period: '/mês',
+                features: [
+                    '3 sessões presenciais por semana',
+                    'Avaliações quinzenais',
+                    'Plano nutricional básico',
+                    'Suporte prioritário',
+                    'App exclusivo'
+                ],
+                button: { text: 'Escolher Plano', class: 'btn-primary' },
+                featured: true
+            },
+            {
+                name: 'Plano Elite',
+                description: 'Experiência completa personalizada',
+                price: 'R$ 1.197',
+                period: '/mês',
+                features: [
+                    'Sessões ilimitadas',
+                    'Liberação miofascial semanal',
+                    'Plano nutricional completo',
+                    'Treino em domicílio',
+                    'Acompanhamento 24/7'
+                ],
+                button: { text: 'Experiência VIP', class: 'btn-outline' },
+                featured: false
+            }
+        ],
+        online: [
+            {
+                name: 'Plano Básico',
+                description: 'Ideal para quem quer começar',
+                price: 'R$ 297',
+                period: '/mês',
+                features: [
+                    'Consultoria online completa',
+                    'Plano de treino personalizado',
+                    'Suporte via WhatsApp',
+                    'App exclusivo de treino',
+                    'Relatórios mensais'
+                ],
+                button: { text: 'Começar Agora', class: 'btn-outline' },
+                featured: false
+            },
+            {
+                name: 'Plano Premium',
+                description: 'Para resultados acelerados',
+                price: 'R$ 597',
+                period: '/mês',
+                features: [
+                    'Tudo do plano básico',
+                    '4 sessões presenciais/mês',
+                    'Plano nutricional detalhado',
+                    'Suporte prioritário 24/7',
+                    'Avaliação física mensal'
+                ],
+                button: { text: 'Escolher Plano', class: 'btn-primary' },
+                featured: true
+            },
+            {
+                name: 'Plano VIP',
+                description: 'Experiência completa',
+                price: 'R$ 897',
+                period: '/mês',
+                features: [
+                    'Tudo do plano premium',
+                    'Sessões ilimitadas presenciais',
+                    'Liberação miofascial semanal',
+                    'Acompanhamento nutricional',
+                    'Treino em domicílio'
+                ],
+                button: { text: 'Experiência VIP', class: 'btn-outline' },
+                featured: false
+            }
+        ],
+        liberacao: [
+            {
+                name: 'Sessão Única',
+                description: 'Para aliviar dores pontuais',
+                price: 'R$ 120',
+                period: '/sessão',
+                features: [
+                    'Liberação miofascial',
+                    'Ventosaterapia',
+                    'Duração de 50 minutos',
+                    'Avaliação rápida',
+                    'Orientações pós-sessão'
+                ],
+                button: { text: 'Agendar', class: 'btn-outline' },
+                featured: false
+            },
+            {
+                name: 'Pacote 5 Sessões',
+                description: 'Tratamento contínuo para melhores resultados',
+                price: 'R$ 550',
+                period: '/pacote',
+                features: [
+                    '5 sessões personalizadas',
+                    'Avaliação detalhada',
+                    'Acompanhamento de evolução',
+                    'Orientações de mobilidade',
+                    'Suporte via WhatsApp'
+                ],
+                button: { text: 'Escolher Pacote', class: 'btn-primary' },
+                featured: true
+            },
+            {
+                name: 'Pacote 10 Sessões',
+                description: 'Foco total em recuperação e performance',
+                price: 'R$ 1.000',
+                period: '/pacote',
+                features: [
+                    '10 sessões completas',
+                    'Reavaliação a cada 5 sessões',
+                    'Liberação de pontos gatilho',
+                    'Plano de exercícios complementares',
+                    'Suporte contínuo'
+                ],
+                button: { text: 'Experiência Completa', class: 'btn-outline' },
+                featured: false
+            }
+        ]
+    };
+
+    function createPlanCard(plan) {
+        return `
+            <div class="pricing-card ${plan.featured ? 'featured' : ''}">
+                ${plan.featured ? '<div class="pricing-badge">Mais Popular</div>' : ''}
+                <div class="pricing-header">
+                    <h3 class="plan-name">${plan.name}</h3>
+                    <p class="plan-description">${plan.description}</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price">${plan.price}</span>
+                    <span class="period">${plan.period}</span>
+                </div>
+                <ul class="pricing-features">
+                    ${plan.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+                </ul>
+                <a href="#contact" class="btn ${plan.button.class}">${plan.button.text}</a>
+            </div>
+        `;
+    }
+
+    function renderPricing(category) {
+        if (!pricingPlans[category]) return;
+        pricingGrid.innerHTML = pricingPlans[category].map(createPlanCard).join('');
+    }
+
+    pricingButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            pricingButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderPricing(btn.dataset.category);
+        });
+    });
+
+    // Initialize pricing section
+    const activePricing = document.querySelector('#pricing .sub-tab-btn.active');
+    if (activePricing) {
+        renderPricing(activePricing.dataset.category);
+    }
+
     // Start auto-slide
     setInterval(nextSlide, 5000);
 
