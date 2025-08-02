@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${category === 'presencial' ? `
                 <div class="calc-wrapper">
                     <div class="calc-line">
-                        Treinos/sem: <input type="number" class="calc-times" min="1" max="7"> &nbsp;--&nbsp; Frequência:
+                        X/sem: <input type="number" class="calc-times" min="1" max="7"> &nbsp; Frequência:
                         <select class="calc-frequency">
                             <option value=""></option>
                             ${pricingPlans.presencial.map(p => `<option value="${p.id}">${p.id.charAt(0).toUpperCase() + p.id.slice(1)}</option>`).join('')}
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <option value="individual">Individual</option>
                             <option value="duo">Duo</option>
                         </select>
-                        &nbsp;--&nbsp; Valor total: <span class="calc-total"></span>
+                        &nbsp; Total: <span class="calc-total"></span>
                     </div>
                 </div>` : ''}
                 <ul class="pricing-features">
