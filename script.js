@@ -276,8 +276,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function createPlanCard(plan, category) {
         const isNumeric = typeof plan.price === 'number';
         const priceDisplay = isNumeric ? formatPrice(plan.price) : plan.price;
+        const dataAttrs = category === 'presencial' ? ` data-price="${plan.price}" data-weeks="${plan.weeks}"` : '';
+        const whatsappMessage = encodeURIComponent(`Olá! Gostaria de ${plan.button.text.toLowerCase()} do plano ${plan.name}.`);
         return `
-            <div class="pricing-card ${plan.featured ? 'featured' : ''}">
+            <div class="pricing-card ${plan.featured ? 'featured' : ''}"${dataAttrs}>
                 ${plan.featured ? '<div class="pricing-badge">Mais Popular</div>' : ''}
                 <div class="pricing-header">
                     <h3 class="plan-name">${plan.name}</h3>
@@ -290,11 +292,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${category === 'presencial' ? `
                 <div class="calc-wrapper">
                     <div class="calc-line">
-                        X/sem: <input type="number" class="calc-times" min="1" max="7"> &nbsp; Frequência:
-                        <select class="calc-frequency">
-                            <option value=""></option>
-                            ${pricingPlans.presencial.map(p => `<option value="${p.id}">${p.id.charAt(0).toUpperCase() + p.id.slice(1)}</option>`).join('')}
-                        </select>
+                        X/sem: <input type="number" class="calc-times" min="1" max="7">
                     </div>
                     <div class="calc-line">
                         Plano:
@@ -308,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <ul class="pricing-features">
                     ${plan.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
                 </ul>
-                <a href="#contact" class="btn ${plan.button.class}">${plan.button.text}</a>
+                <a href="https://wa.me/55019997088455?text=${whatsappMessage}" target="_blank" class="btn ${plan.button.class}">${plan.button.text}</a>
             </div>
         `;
     }
@@ -340,20 +338,19 @@ document.addEventListener('DOMContentLoaded', function () {
     function initPresencialCalculator() {
         document.querySelectorAll('#pricing .pricing-card').forEach(card => {
             const timesInput = card.querySelector('.calc-times');
-            const freqSelect = card.querySelector('.calc-frequency');
             const planSelect = card.querySelector('.calc-plan');
             const totalEl = card.querySelector('.calc-total');
-            if (!timesInput || !freqSelect || !planSelect || !totalEl) return;
+            const price = parseFloat(card.dataset.price);
+            const weeks = parseInt(card.dataset.weeks, 10);
+            if (!timesInput || !planSelect || !totalEl || !price || !weeks) return;
 
             function updateCalc() {
                 const times = parseInt(timesInput.value, 10);
-                const freqId = freqSelect.value;
-                if (!times || !freqId) {
+                if (!times) {
                     totalEl.textContent = '';
                     return;
                 }
-                const planData = pricingPlans.presencial.find(p => p.id === freqId);
-                let total = planData.price * times * planData.weeks;
+                let total = price * times * weeks;
                 if (planSelect.value === 'duo') {
                     total = total * 2 * 0.85;
                 }
@@ -361,7 +358,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             timesInput.addEventListener('input', updateCalc);
-            freqSelect.addEventListener('change', updateCalc);
             planSelect.addEventListener('change', updateCalc);
         });
     }
@@ -451,31 +447,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Simulate form submission
+            // Prepare email
+            const mailSubject = 'Contato via site';
+            const mailBody = `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nServiço: ${service}\nMensagem: ${message || ''}`;
+            const mailtoLink = `mailto:iansr.estudos@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+            // Feedback to user
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
 
-            // Simulate API call
             setTimeout(() => {
-                showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+                window.location.href = mailtoLink;
+                showNotification('Mensagem pronta no seu e-mail.', 'success');
                 contactForm.reset();
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-
-                // Redirect to WhatsApp (optional)
-                const whatsappMessage = `Olá! Meu nome é ${name}. Tenho interesse no serviço: ${service}. ${message ? 'Mensagem: ' + message : ''}`;
-                const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(whatsappMessage)}`;
-
-                setTimeout(() => {
-                    if (confirm('Deseja continuar a conversa pelo WhatsApp?')) {
-                        window.open(whatsappUrl, '_blank');
-                    }
-                }, 2000);
-
-            }, 2000);
+            }, 500);
         });
     }
 
