@@ -664,6 +664,35 @@ h6 {
     margin-bottom: 3rem;
 }
 
+.pricing-carousel {
+    position: relative;
+}
+
+.pricing-arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.pricing-prev {
+    left: -10px;
+}
+
+.pricing-next {
+    right: -10px;
+}
+
 .pricing-card {
     background: var(--bg-card);
     padding: 2.5rem;
@@ -1258,19 +1287,22 @@ h6 {
 
     .pricing-grid {
         display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 1rem;
+        overflow: hidden;
+        gap: 0;
+        transition: transform 0.3s ease;
+        touch-action: pan-y;
     }
 
     .pricing-card {
         flex: 0 0 100%;
-        scroll-snap-align: start;
     }
 
     .pricing-card.featured {
         transform: none;
+    }
+
+    .pricing-arrow {
+        display: flex;
     }
 
     .footer-bottom {
