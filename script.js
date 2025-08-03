@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 features: [
                     'Avaliação física presencial no início e ao final do mês',
                     'Acompanhamento contínuo',
-                    'Bônus por indicação'
+                    'Possibilidade de treinar em dupla'
                 ],
                 button: { text: 'Assinar', class: 'btn-primary' },
                 featured: false,
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 features: [
                     'Avaliação física presencial no início e ao final do ciclo',
                     'Programa ajustado por progresso',
-                    'Bônus por indicação'
+                    'Possibilidade de treinar em dupla'
                 ],
                 button: { text: 'Assinar', class: 'btn-primary' },
                 featured: true,
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 features: [
                     'Avaliação física presencial no início e ao final do ciclo',
                     'Planejamento de longo prazo',
-                    'Bônus por indicação'
+                    'Possibilidade de treinar em dupla'
                 ],
                 button: { text: 'Assinar', class: 'btn-primary' },
                 featured: false,
