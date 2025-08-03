@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Header scroll effect
     const header = document.querySelector('.header');
+
+    function updateHeaderHeight() {
+        document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+    }
+
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+
     window.addEventListener('scroll', function () {
         if (window.scrollY > 100) {
             header.style.background = 'var(--bg-dark)';
