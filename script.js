@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 period: '/mês',
                 features: [
                     'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
-                    'Planilhas semanais',
+                    'Aplicativo de treino',
                     'Correção de vídeos',
                     'Suporte via WhatsApp'
                 ],
@@ -201,8 +201,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 period: '/mês (R$ 210 total)',
                 features: [
                     'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
+                    'Aplicativo de treino',
                     'Ajustes baseados em progresso',
-                    'Suporte contínuo'
+                    'Suporte contínuo via whatsapp'
                 ],
                 button: { text: 'Assinar trimestre', class: 'btn-primary' },
                 featured: true
@@ -214,8 +215,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 period: '/mês (R$ 360 total)',
                 features: [
                     'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
+                    'Aplicativo de treino',
                     'Revisão estratégica',
-                    'Suporte e correção de vídeos'
+                    'Suporte contínuo via whatsapp'
                 ],
                 button: { text: 'Assinar semestre', class: 'btn-outline' },
                 featured: false
@@ -223,26 +225,29 @@ document.addEventListener('DOMContentLoaded', function () {
         ],
         liberacao: [
             {
-                name: 'Liberação Miofascial Avulsa',
+                name: 'Liberação Avulsa',
                 description: 'Alívio de tensões pontuais e melhora de mobilidade.',
                 price: 'R$ 80',
                 period: '/sessão',
                 features: [
-                    'Avaliação postural rápida incluída',
-                    'Aplicação individualizada'
+                    'Alívio rápido de tensão localizada.',
+                    'Recupere mobilidade em uma sessão.',
+                    'Sensação de corpo mais solto e funcional.',
+                    'Teste o efeito da liberação — sem compromisso.'
                 ],
                 button: { text: 'Agendar sessão', class: 'btn-outline' },
                 featured: false
             },
             {
                 name: 'Pacote 4 Sessões',
-                description: 'Série para consistência e recuperação.',
+                description: 'Pacote para garantir tratamento contínuo de seus desconfortos.',
                 price: 'R$ 280',
                 period: '/pacote',
                 features: [
-                    'Avaliação postural inicial',
-                    'Sequência planejada',
-                    'Pode ser combinada com treino'
+                    'Consistência que gera adaptação real.',
+                    'Sequência planejada para resultados duradouros.',
+                    'Corpo mais móvel e menos propenso a dores.',
+                    'Evolua da dor ao desempenho com regularidade.'
                 ],
                 button: { text: 'Comprar pacote', class: 'btn-primary' },
                 featured: true
@@ -253,8 +258,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 price: 'R$ 150',
                 period: '/mês (2 sessões)',
                 features: [
-                    'Avaliação postural em cada ciclo mensal',
-                    'Prioridade de agendamento'
+                    'Movimento preservado: liberação contínua todo mês.',
+                    'Prevenção de recaídas e acúmulo de tensão.',
+                    'Manutenção inteligente para performance e bem-estar.',
+                    'Priorize seu corpo antes que a dor volte.'
                 ],
                 button: { text: 'Assinar mensal', class: 'btn-outline' },
                 featured: false
