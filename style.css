@@ -768,6 +768,7 @@ h6 {
 .calc-line {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     flex-wrap: wrap;
 }

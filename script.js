@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Acompanhamento contínuo',
                     'Bônus por indicação'
                 ],
-                button: { text: 'Começar agora', class: 'btn-primary' },
+                button: { text: 'Assinar', class: 'btn-primary' },
                 featured: false,
                 duo: true
             },
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Programa ajustado por progresso',
                     'Bônus por indicação'
                 ],
-                button: { text: 'Assinar trimestre', class: 'btn-primary' },
+                button: { text: 'Assinar', class: 'btn-primary' },
                 featured: true,
                 duo: true
             },
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Planejamento de longo prazo',
                     'Bônus por indicação'
                 ],
-                button: { text: 'Assinar semestre', class: 'btn-primary' },
+                button: { text: 'Assinar', class: 'btn-primary' },
                 featured: false,
                 duo: true
             }
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Correção de vídeos',
                     'Suporte via WhatsApp'
                 ],
-                button: { text: 'Começar online', class: 'btn-outline' },
+                button: { text: 'Assinar', class: 'btn-outline' },
                 featured: false
             },
             {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Ajustes baseados em progresso',
                     'Suporte contínuo via whatsapp'
                 ],
-                button: { text: 'Assinar trimestre', class: 'btn-primary' },
+                button: { text: 'Assinar', class: 'btn-primary' },
                 featured: true
             },
             {
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Revisão estratégica',
                     'Suporte contínuo via whatsapp'
                 ],
-                button: { text: 'Assinar semestre', class: 'btn-outline' },
+                button: { text: 'Assinar', class: 'btn-outline' },
                 featured: false
             }
         ],
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const isNumeric = typeof plan.price === 'number';
         const priceDisplay = isNumeric ? formatPrice(plan.price) : plan.price;
         const dataAttrs = category === 'presencial' ? ` data-price="${plan.price}" data-weeks="${plan.weeks}"` : '';
-        const whatsappMessage = encodeURIComponent(`Olá! Gostaria de ${plan.button.text.toLowerCase()} do plano ${plan.name}.`);
+        const whatsappMessage = encodeURIComponent(`Olá! Gostaria de ${plan.button.text.toLowerCase()} o plano ${plan.name}.`);
         return `
             <div class="pricing-card ${plan.featured ? 'featured' : ''}"${dataAttrs}>
                 ${plan.featured ? '<div class="pricing-badge">Mais Popular</div>' : ''}
@@ -292,15 +292,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${category === 'presencial' ? `
                 <div class="calc-wrapper">
                     <div class="calc-line">
-                        X/sem: <input type="number" class="calc-times" min="1" max="7">
-                    </div>
-                    <div class="calc-line">
-                        Plano:
+                        X/sem: <input type="number" class="calc-times" min="1" max="7">&nbsp; Plano:
                         <select class="calc-plan">
                             <option value="individual">Individual</option>
                             <option value="duo">Duo</option>
                         </select>
-                        &nbsp; Total: <span class="calc-total"></span>
+                    </div>
+                    <div class="calc-line">
+                        
+                        Total: <span class="calc-total"></span>
                     </div>
                 </div>` : ''}
                 <ul class="pricing-features">
