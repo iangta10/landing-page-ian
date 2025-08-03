@@ -277,7 +277,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const isNumeric = typeof plan.price === 'number';
         const priceDisplay = isNumeric ? formatPrice(plan.price) : plan.price;
         const dataAttrs = category === 'presencial' ? ` data-price="${plan.price}" data-weeks="${plan.weeks}"` : '';
-        const whatsappMessage = encodeURIComponent(`Olá! Gostaria de ${plan.button.text.toLowerCase()} o plano ${plan.name}.`);
+        const whatsappMessage = category === 'liberacao'
+            ? encodeURIComponent(`Olá! Gostaria de agendar ${plan.name}.`)
+            : encodeURIComponent(`Olá! Gostaria de ${plan.button.text.toLowerCase()} o plano ${plan.name}.`);
         return `
             <div class="pricing-card ${plan.featured ? 'featured' : ''}"${dataAttrs}>
                 ${plan.featured ? '<div class="pricing-badge">Mais Popular</div>' : ''}
