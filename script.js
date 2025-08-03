@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const pricingButtons = document.querySelectorAll('#pricing .sub-tab-btn');
     const pricingGrid = document.querySelector('#pricing .pricing-grid');
     let baseCardHeight;
+    let currentPricingIndex = 0;
 
     const pricingPlans = {
         presencial: [
@@ -321,38 +322,16 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     }
 
-    function initDuoToggle() {
-        document.querySelectorAll('#pricing .pricing-card').forEach(card => {
-            const priceEl = card.querySelector('.price');
-            const periodEl = card.querySelector('.period');
-            const btnInd = card.querySelector('[data-type="individual"]');
-            const btnDuo = card.querySelector('[data-type="duo"]');
-            if (!btnInd || !btnDuo) return;
-
-            btnInd.addEventListener('click', () => {
-                priceEl.textContent = formatPrice(priceEl.dataset.individual);
-                periodEl.textContent = '/aula';
-                btnInd.classList.add('active');
-                btnDuo.classList.remove('active');
-            });
-
-            btnDuo.addEventListener('click', () => {
-                priceEl.textContent = formatPrice(priceEl.dataset.duo);
-                periodEl.textContent = '/aula por pessoa';
-                btnDuo.classList.add('active');
-                btnInd.classList.remove('active');
-            });
-        });
-    }
-
     function initPresencialCalculator() {
         document.querySelectorAll('#pricing .pricing-card').forEach(card => {
             const timesInput = card.querySelector('.calc-times');
             const planSelect = card.querySelector('.calc-plan');
             const totalEl = card.querySelector('.calc-total');
+            const priceEl = card.querySelector('.price');
+            const periodEl = card.querySelector('.period');
             const price = parseFloat(card.dataset.price);
             const weeks = parseInt(card.dataset.weeks, 10);
-            if (!timesInput || !planSelect || !totalEl || !price || !weeks) return;
+            if (!timesInput || !planSelect || !totalEl || !price || !weeks || !priceEl || !periodEl) return;
 
             function updateCalc() {
                 const times = parseInt(timesInput.value, 10);
@@ -367,9 +346,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 totalEl.textContent = formatPrice(total);
             }
 
+            function updatePrice() {
+                if (planSelect.value === 'duo') {
+                    priceEl.textContent = formatPrice(priceEl.dataset.duo);
+                    periodEl.textContent = '/aula /aluno';
+                } else {
+                    priceEl.textContent = formatPrice(priceEl.dataset.individual);
+                    periodEl.textContent = '/aula';
+                }
+            }
+
             timesInput.addEventListener('input', updateCalc);
-            planSelect.addEventListener('change', updateCalc);
+            planSelect.addEventListener('change', () => {
+                updatePrice();
+                updateCalc();
+            });
+
+            updatePrice();
         });
+    }
+
+    function initPricingCarousel() {
+        const prevBtn = document.querySelector('#pricing .pricing-prev');
+        const nextBtn = document.querySelector('#pricing .pricing-next');
+        const cards = pricingGrid.querySelectorAll('.pricing-card');
+        if (!prevBtn || !nextBtn || cards.length === 0 || window.innerWidth > 768) return;
+        currentPricingIndex = 0;
+        pricingGrid.style.transform = 'translateX(0)';
+        prevBtn.onclick = () => {
+            if (currentPricingIndex > 0) {
+                currentPricingIndex--;
+                pricingGrid.style.transform = `translateX(-${currentPricingIndex * 100}%)`;
+            }
+        };
+        nextBtn.onclick = () => {
+            if (currentPricingIndex < cards.length - 1) {
+                currentPricingIndex++;
+                pricingGrid.style.transform = `translateX(-${currentPricingIndex * 100}%)`;
+            }
+        };
     }
 
     function renderPricing(category) {
@@ -379,10 +394,10 @@ document.addEventListener('DOMContentLoaded', function () {
             baseCardHeight = Math.max(...Array.from(pricingGrid.querySelectorAll('.pricing-card')).map(c => c.offsetHeight));
             document.documentElement.style.setProperty('--pricing-card-height', baseCardHeight + 'px');
         }
-        initDuoToggle();
         if (category === 'presencial') {
             initPresencialCalculator();
         }
+        initPricingCarousel();
     }
 
     pricingButtons.forEach(btn => {
