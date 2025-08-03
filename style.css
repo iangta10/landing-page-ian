@@ -4,6 +4,7 @@
     --bg-dark: #121212;
     --bg-card: #1e1e1e;
     --border-light: #333;
+    --header-height: 80px;
 }
 
 /* Reset and Base Styles */
@@ -29,6 +30,10 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+section {
+    scroll-margin-top: var(--header-height);
 }
 
 /* Typography */
@@ -202,7 +207,7 @@ h6 {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: var(--header-height);
     overflow: hidden;
 }
 
@@ -1252,7 +1257,16 @@ h6 {
     }
 
     .pricing-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+    }
+
+    .pricing-card {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
     }
 
     .pricing-card.featured {
