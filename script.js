@@ -472,24 +472,37 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Prepare email
-            const mailSubject = 'Contato via site';
-            const mailBody = `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nServiço: ${service}\nMensagem: ${message || ''}`;
-            const mailtoLink = `mailto:iansr.estudos@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
-
             // Feedback to user
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
 
-            setTimeout(() => {
-                window.location.href = mailtoLink;
-                showNotification('Mensagem pronta no seu e-mail.', 'success');
-                contactForm.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 500);
+            // Send email using FormSubmit
+            fetch('https://formsubmit.co/ajax/iansr.estudos@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao enviar');
+                    }
+                    return response.json();
+                })
+                .then(() => {
+                    showNotification('Mensagem enviada com sucesso!', 'success');
+                    contactForm.reset();
+                })
+                .catch(() => {
+                    showNotification('Ocorreu um erro ao enviar sua mensagem. Tente novamente.', 'error');
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
 
