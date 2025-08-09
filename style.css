@@ -1353,7 +1353,23 @@ h6 {
 
     .service-card,
     .pricing-card {
-        padding: 2rem;
+        padding: 1.5rem;
+    }
+
+    .pricing-header {
+        margin-bottom: 1rem;
+    }
+
+    .pricing-price {
+        margin-bottom: 1rem;
+    }
+
+    .pricing-features {
+        margin-bottom: 1rem;
+    }
+
+    .pricing-features li {
+        margin-bottom: 0.5rem;
     }
 
     .contact-form {
