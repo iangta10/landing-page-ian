@@ -1285,9 +1285,12 @@ h6 {
         gap: 2rem;
     }
 
+    .pricing-carousel {
+        overflow: hidden;
+    }
+
     .pricing-grid {
         display: flex;
-        overflow: hidden;
         gap: 0;
         transition: transform 0.3s ease;
         touch-action: pan-y;
