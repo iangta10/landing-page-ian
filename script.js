@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 features: [
                     'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
                     'Aplicativo de treino',
-                    'Correção de vídeos',
+                    'Correção por vídeos',
                     'Suporte via WhatsApp'
                 ],
                 button: { text: 'Assinar', class: 'btn-outline' },
@@ -222,6 +222,50 @@ document.addEventListener('DOMContentLoaded', function () {
                 description: 'Plano de longo prazo otimizado.',
                 price: 'R$ 60',
                 period: '/mês (R$ 360 total)',
+                features: [
+                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
+                    'Aplicativo de treino',
+                    'Revisão estratégica',
+                    'Suporte contínuo via whatsapp'
+                ],
+                button: { text: 'Assinar', class: 'btn-outline' },
+                featured: false
+            }
+        ],
+        online_dieta: [
+            {
+                name: 'Online + Dieta Mensal',
+                description: 'Consultoria remota com flexibilidade.',
+                price: 'R$ 150',
+                period: '/mês',
+                features: [
+                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
+                    'Aplicativo de treino',
+                    'Correção por vídeos',
+                    'Suporte via WhatsApp'
+                ],
+                button: { text: 'Assinar', class: 'btn-outline' },
+                featured: false
+            },
+            {
+                name: 'Online + Dieta Trimestral',
+                description: 'Compromisso de 3 meses com desconto.',
+                price: 'R$ 135',
+                period: '/mês (R$ 405 total)',
+                features: [
+                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
+                    'Aplicativo de treino',
+                    'Ajustes baseados em progresso',
+                    'Suporte contínuo via whatsapp'
+                ],
+                button: { text: 'Assinar', class: 'btn-primary' },
+                featured: true
+            },
+            {
+                name: 'Online + Dieta Semestral',
+                description: 'Plano de longo prazo otimizado.',
+                price: 'R$ 120',
+                period: '/mês (R$ 720 total)',
                 features: [
                     'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
                     'Aplicativo de treino',
