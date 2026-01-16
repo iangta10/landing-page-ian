@@ -662,6 +662,7 @@ h6 {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
+    justify-content: center;
 }
 
 .pricing-carousel {
@@ -705,6 +706,9 @@ h6 {
     min-height: var(--pricing-card-height, auto);
     display: flex;
     flex-direction: column;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .pricing-card:hover {
