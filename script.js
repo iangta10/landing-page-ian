@@ -154,38 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 button: { text: 'Assinar', class: 'btn-primary' },
                 featured: false,
                 duo: true
-            },
-            {
-                id: 'trimestral',
-                name: 'Presencial Trimestral',
-                description: 'Compromisso de 3 meses com desconto progressivo.',
-                price: 45,
-                period: '/aula',
-                weeks: 12,
-                features: [
-                    'Avaliação física presencial no início e ao final do ciclo',
-                    'Programa ajustado por progresso',
-                    'Possibilidade de treinar em dupla'
-                ],
-                button: { text: 'Assinar', class: 'btn-primary' },
-                featured: true,
-                duo: true
-            },
-            {
-                id: 'semestral',
-                name: 'Presencial Semestral',
-                description: 'Melhor custo-benefício para quem quer consistência.',
-                price: 35,
-                period: '/aula',
-                weeks: 24,
-                features: [
-                    'Avaliação física presencial no início e ao final do ciclo',
-                    'Planejamento de longo prazo',
-                    'Possibilidade de treinar em dupla'
-                ],
-                button: { text: 'Assinar', class: 'btn-primary' },
-                featured: false,
-                duo: true
             }
         ],
         online: [
@@ -202,86 +170,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 ],
                 button: { text: 'Assinar', class: 'btn-outline' },
                 featured: false
-            },
-            {
-                name: 'Online Trimestral',
-                description: 'Compromisso de 3 meses com desconto.',
-                price: 'R$ 70',
-                period: '/mês (R$ 210 total)',
-                features: [
-                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
-                    'Aplicativo de treino',
-                    'Ajustes baseados em progresso',
-                    'Suporte contínuo via whatsapp'
-                ],
-                button: { text: 'Assinar', class: 'btn-primary' },
-                featured: true
-            },
-            {
-                name: 'Online Semestral',
-                description: 'Plano de longo prazo otimizado.',
-                price: 'R$ 60',
-                period: '/mês (R$ 360 total)',
-                features: [
-                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
-                    'Aplicativo de treino',
-                    'Revisão estratégica',
-                    'Suporte contínuo via whatsapp'
-                ],
-                button: { text: 'Assinar', class: 'btn-outline' },
-                featured: false
-            }
-        ],
-        online_dieta: [
-            {
-                name: 'Online + Dieta Mensal',
-                description: 'Consultoria remota com flexibilidade.',
-                price: 'R$ 150',
-                period: '/mês',
-                features: [
-                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
-                    'Aplicativo de treino',
-                    'Correção por vídeos',
-                    'Suporte via WhatsApp'
-                ],
-                button: { text: 'Assinar', class: 'btn-outline' },
-                featured: false
-            },
-            {
-                name: 'Online + Dieta Trimestral',
-                description: 'Compromisso de 3 meses com desconto.',
-                price: 'R$ 135',
-                period: '/mês (R$ 405 total)',
-                features: [
-                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
-                    'Aplicativo de treino',
-                    'Ajustes baseados em progresso',
-                    'Suporte contínuo via whatsapp'
-                ],
-                button: { text: 'Assinar', class: 'btn-primary' },
-                featured: true
-            },
-            {
-                name: 'Online + Dieta Semestral',
-                description: 'Plano de longo prazo otimizado.',
-                price: 'R$ 120',
-                period: '/mês (R$ 720 total)',
-                features: [
-                    'Possibilidade de avaliação física presencial no início e ao final do mês (conforme disponibilidade)',
-                    'Aplicativo de treino',
-                    'Revisão estratégica',
-                    'Suporte contínuo via whatsapp'
-                ],
-                button: { text: 'Assinar', class: 'btn-outline' },
-                featured: false
             }
         ],
         liberacao: [
             {
-                name: 'Liberação Avulsa',
+                name: 'Sessão Curta',
                 description: 'Alívio de tensões pontuais e melhora de mobilidade.',
-                price: 'R$ 80',
-                period: '/sessão',
+                price: 'R$ 30',
+                period: '15 min/sessão',
                 features: [
                     'Alívio rápido de tensão localizada.',
                     'Recupere mobilidade em uma sessão.',
@@ -292,31 +188,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 featured: false
             },
             {
-                name: 'Pacote 4 Sessões',
-                description: 'Pacote para garantir tratamento contínuo de seus desconfortos.',
-                price: 'R$ 280',
-                period: '/pacote',
+                name: 'Sessão Funcional',
+                description: 'Liberação miofascial aplicada ao movimento e à função do corpo.',
+                price: 'R$ 50',
+                period: '30 min/sessão',
                 features: [
-                    'Consistência que gera adaptação real.',
-                    'Sequência planejada para resultados duradouros.',
-                    'Corpo mais móvel e menos propenso a dores.',
-                    'Evolua da dor ao desempenho com regularidade.'
+                    'Redução de dores e rigidez muscular.',
+                    'Melhora da mobilidade e do padrão de movimento.',
+                    'Liberação focada em regiões estratégicas.',
+                    'Ideal para quem treina ou sente limitações frequentes.'
                 ],
-                button: { text: 'Comprar pacote', class: 'btn-primary' },
+                button: { text: 'Agendar sessão', class: 'btn-primary' },
                 featured: true
             },
             {
-                name: 'Liberação Mensal',
-                description: 'Manutenção regular para mobilidade e performance.',
-                price: 'R$ 150',
-                period: '/mês (2 sessões)',
+                name: 'Sessão Completa',
+                description: 'Liberação miofascial profunda com abordagem global do corpo.',
+                price: 'R$ 80',
+                period: '60 min/sessão',
                 features: [
-                    'Movimento preservado: liberação contínua todo mês.',
-                    'Prevenção de recaídas e acúmulo de tensão.',
-                    'Manutenção inteligente para performance e bem-estar.',
-                    'Priorize seu corpo antes que a dor volte.'
+                    'Tratamento completo e individualizado.',
+                    'Liberação profunda de múltiplas cadeias musculares.',
+                    'Melhora significativa da mobilidade e recuperação muscular.',
+                    'Sensação prolongada de relaxamento e bem-estar.'
                 ],
-                button: { text: 'Assinar mensal', class: 'btn-outline' },
+                button: { text: 'Agendar sessão', class: 'btn-outline' },
                 featured: false
             }
         ]
