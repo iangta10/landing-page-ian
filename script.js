@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 button: {
                     text: 'Assinar',
                     class: 'btn-outline',
-                    href: 'https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=5ba10236dac5491ea5e549297e1c8f5e'
+                    href: 'https://mpago.li/1JzpvY8'
                 },
                 featured: false
             }
