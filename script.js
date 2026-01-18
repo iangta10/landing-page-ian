@@ -168,7 +168,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Correção por vídeos',
                     'Suporte via WhatsApp'
                 ],
-                button: { text: 'Assinar', class: 'btn-outline' },
+                button: {
+                    text: 'Assinar',
+                    class: 'btn-outline',
+                    href: 'https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=5ba10236dac5491ea5e549297e1c8f5e'
+                },
                 featured: false
             }
         ],
@@ -229,6 +233,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const whatsappMessage = category === 'liberacao'
             ? encodeURIComponent(`Olá! Gostaria de agendar ${plan.name}.`)
             : encodeURIComponent(`Olá! Gostaria de ${plan.button.text.toLowerCase()} o plano ${plan.name}.`);
+        const buttonHref = plan.button.href
+            ? plan.button.href
+            : `https://wa.me/55019997088455?text=${whatsappMessage}`;
         return `
             <div class="pricing-card ${plan.featured ? 'featured' : ''}"${dataAttrs}>
                 ${plan.featured ? '<div class="pricing-badge">Mais Popular</div>' : ''}
@@ -257,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <ul class="pricing-features">
                     ${plan.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
                 </ul>
-                <a href="https://wa.me/55019997088455?text=${whatsappMessage}" target="_blank" class="btn ${plan.button.class}">${plan.button.text}</a>
+                <a href="${buttonHref}" target="_blank" class="btn ${plan.button.class}">${plan.button.text}</a>
             </div>
         `;
     }
@@ -706,4 +713,3 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
     document.head.appendChild(loadingStyle);
 });
-
