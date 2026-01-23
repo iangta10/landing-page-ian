@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 button: {
                     text: 'Assinar',
                     class: 'btn-outline',
-                    href: 'https://mpago.li/1JzpvY8'
+                    href: 'payment.html'
                 },
                 featured: false
             }
