@@ -1,125 +1,131 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação de Pagamento</title>
-    <meta name="description" content="Confirme seu pagamento e finalize o acesso ao seu plano.">
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Confirmação de Pagamento</title>
+        <meta name="description" content="Confirme seu pagamento e finalize o acesso ao seu plano.">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="/assets/images/icons/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+        <link rel="manifest" href="/assets/images/icons/site.webmanifest">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="payment-body">
-    <header class="payment-header">
-        <a class="payment-logo" href="index.html">
-            <img src="assets/images/logo ian personal.png" alt="Ian Siqueira Personal Trainer">
-        </a>
-    </header>
-
-    <main class="payment-main">
-        <section class="payment-card confirmation-card">
-            <div class="payment-tag">
-                <i class="fas fa-check-circle"></i>
-                Pagamento confirmado
-            </div>
-            <h1>Obrigado por concluir o pagamento!</h1>
-            <p class="payment-subtitle">
-                Assim que você clicar no botão abaixo, registramos sua confirmação e liberamos o próximo passo
-                automaticamente.
-            </p>
-
-            <div class="confirmation-details">
-                <div class="confirmation-item">
-                    <span class="confirmation-label">Status</span>
-                    <span class="confirmation-value">Pagamento efetuado</span>
-                </div>
-                <div class="confirmation-item">
-                    <span class="confirmation-label">Próximo passo</span>
-                    <span class="confirmation-value">Liberar/Manter acesso ao aplicativo de treinos</span>
-                </div>
-            </div>
-
-            <button class="btn btn-primary payment-cta" id="payment-confirm-btn" type="button"
-                data-webhook="https://iangta10.app.n8n.cloud/webhook-test/c18802a5-7956-4d39-9f39-e2fef92b38bc">
-                <i class="fas fa-check"></i>
-                Já paguei
-            </button>
-            
-            <p class="confirmation-status" id="confirmation-status" role="status" aria-live="polite"></p>
-            <a class="payment-help" href="https://wa.me/55019997088455" target="_blank" rel="noopener">
-                <i class="fab fa-whatsapp"></i> Precisa de ajuda? Fale comigo
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="payment-body">
+        <header class="payment-header">
+            <a class="payment-logo" href="index.html">
+                <img src="assets/images/logo ian personal.png" alt="Ian Siqueira Personal Trainer">
             </a>
-        </section>
-    </main>
+        </header>
+
+        <main class="payment-main">
+            <section class="payment-card confirmation-card">
+                <div class="payment-tag">
+                    <i class="fas fa-check-circle"></i>
+                    Pagamento confirmado
+                </div>
+                <h1>Obrigado por concluir o pagamento!</h1>
+                <p class="payment-subtitle">
+                    Assim que você clicar no botão abaixo, registramos sua confirmação e liberamos o próximo passo
+                    automaticamente.
+                </p>
+
+                <div class="confirmation-details">
+                    <div class="confirmation-item">
+                        <span class="confirmation-label">Status</span>
+                        <span class="confirmation-value">Pagamento efetuado</span>
+                    </div>
+                    <div class="confirmation-item">
+                        <span class="confirmation-label">Próximo passo</span>
+                        <span class="confirmation-value">Liberar/Manter acesso ao aplicativo de treinos</span>
+                    </div>
+                </div>
+
+                <!-- USE A PRODUCTION URL AQUI (a que tem /webhook/, não /webhook-test/) -->
+                <button
+                    class="btn btn-primary payment-cta"
+                    id="payment-confirm-btn"
+                    type="button"
+                    data-webhook="https://iangta10.app.n8n.cloud/webhook/c18802a5-7956-4d39-9f39-e2fef92b38bc"
+                >
+                    <i class="fas fa-check"></i>
+                    Já paguei
+                </button>
+                
+                <p class="confirmation-status" id="confirmation-status" role="status" aria-live="polite"></p>
+                <a class="payment-help" href="https://wa.me/55019997088455" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i> Precisa de ajuda? Fale comigo
+                </a>
+            </section>
+        </main>
 
         <script>
-    const confirmButton = document.getElementById('payment-confirm-btn');
-    const statusMessage = document.getElementById('confirmation-status');
+        const confirmButton = document.getElementById('payment-confirm-btn');
+        const statusMessage = document.getElementById('confirmation-status');
 
-    confirmButton.addEventListener('click', () => {
-        const webhookUrl = confirmButton.dataset.webhook;
+        confirmButton.addEventListener('click', () => {
+            const webhookUrl = confirmButton.dataset.webhook;
 
-        // Validação básica: precisa ter a URL real do n8n
+            // Validação básica: só checa se existe URL
             if (!webhookUrl) {
             statusMessage.textContent = 'Configure a URL do webhook do N8N para registrar este pagamento.';
             statusMessage.classList.add('is-warning');
             return;
             }
 
-        confirmButton.disabled = true;
-        confirmButton.classList.add('is-loading');
-        statusMessage.textContent = 'Registrando sua confirmação...';
-        statusMessage.classList.remove('is-warning');
+            confirmButton.disabled = true;
+            confirmButton.classList.add('is-loading');
+            statusMessage.textContent = 'Registrando sua confirmação...';
+            statusMessage.classList.remove('is-warning');
 
-        // Payload enviado para o N8N
-        const payload = {
-        status: 'paid_request',              // cliente clicou em "paguei"
-        origem: 'site',                     // veio do site, não do Mercado Pago
-        page: 'payment-confirmation',
-        timestamp: new Date().toISOString()
-        };
+            const payload = {
+            status: 'paid_request',      // cliente clicou em "paguei"
+            origem: 'site',              // veio do site
+            page: 'payment-confirmation',
+            timestamp: new Date().toISOString()
+            };
 
-        const body = JSON.stringify(payload);
-        const blob = new Blob([body], { type: 'application/json' });
-        const beaconSent = navigator.sendBeacon && navigator.sendBeacon(webhookUrl, blob);
+            const body = JSON.stringify(payload);
+            const blob = new Blob([body], { type: 'application/json' });
 
-        const finalize = (success) => {
-        confirmButton.disabled = false;
-        confirmButton.classList.remove('is-loading');
-        statusMessage.textContent = success
-            ? 'Confirmação registrada! Em breve você receberá o contato.'
-            : 'Não foi possível enviar agora. Tente novamente em instantes.';
-        statusMessage.classList.toggle('is-success', success);
-        statusMessage.classList.toggle('is-error', !success);
-        };
+            // Tentativa com sendBeacon (não usamos isso pra decidir sucesso)
+            if (navigator.sendBeacon) {
+            try {
+                navigator.sendBeacon(webhookUrl, blob);
+            } catch (e) {
+                // silencioso, vamos pro fetch de qualquer forma
+            }
+            }
 
-        // Se o sendBeacon funcionou, já consideramos OK
-        if (beaconSent) {
-        finalize(true);
-        return;
-        }
+            const finalize = (success) => {
+            confirmButton.disabled = false;
+            confirmButton.classList.remove('is-loading');
+            statusMessage.textContent = success
+                ? 'Confirmação registrada! Em breve você receberá o contato.'
+                : 'Não foi possível enviar agora. Tente novamente em instantes.';
+            statusMessage.classList.toggle('is-success', success);
+            statusMessage.classList.toggle('is-error', !success);
+            };
 
-        // Fallback com fetch
-        fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body
-        })
-        .then(response => finalize(response.ok))
-        .catch(() => finalize(false));
-    });
-    </script>
+            // Fetch para ter resposta real do servidor
+            fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body
+            })
+            .then(response => finalize(response.ok))
+            .catch(() => finalize(false));
+        });
+        </script>
 
-</body>
-</html>
+    </body>
+    </html>
