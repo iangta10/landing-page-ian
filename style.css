@@ -1507,6 +1507,7 @@ h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     background: rgba(255, 107, 53, 0.15);
     color: var(--primary);
     font-weight: 600;
@@ -1583,6 +1584,62 @@ h6 {
 
 .payment-help:hover {
     color: var(--primary);
+}
+
+.confirmation-card {
+    max-width: 560px;
+}
+
+.confirmation-details {
+    display: grid;
+    gap: 16px;
+    margin: 24px 0;
+    text-align: left;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.confirmation-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.confirmation-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #a7a7a7;
+}
+
+.confirmation-value {
+    font-weight: 600;
+}
+
+.confirmation-status {
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: #ccc;
+    min-height: 22px;
+}
+
+.confirmation-status.is-success {
+    color: #6ee7b7;
+}
+
+.confirmation-status.is-error {
+    color: #fca5a5;
+}
+
+.confirmation-status.is-warning {
+    color: #facc15;
+}
+
+.payment-cta.is-loading {
+    opacity: 0.75;
+    cursor: wait;
 }
 
 @media (max-width: 480px) {
