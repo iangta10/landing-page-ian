@@ -61,59 +61,65 @@
         </section>
     </main>
 
-    <script>
-        const confirmButton = document.getElementById('payment-confirm-btn');
-        const statusMessage = document.getElementById('confirmation-status');
+        <script>
+    const confirmButton = document.getElementById('payment-confirm-btn');
+    const statusMessage = document.getElementById('confirmation-status');
 
-        confirmButton.addEventListener('click', () => {
-            const webhookUrl = confirmButton.dataset.webhook;
+    confirmButton.addEventListener('click', () => {
+        const webhookUrl = confirmButton.dataset.webhook;
 
-            if (!webhookUrl || webhookUrl.includes('seu-n8n-webhook')) {
-                statusMessage.textContent = 'Configure a URL do webhook do N8N para registrar este pagamento.';
-                statusMessage.classList.add('is-warning');
-                return;
-            }
+        // Validação básica: precisa ter a URL real do n8n
+        if (!webhookUrl || webhookUrl.includes('seu-n8n-webhook')) {
+        statusMessage.textContent = 'Configure a URL do webhook do N8N para registrar este pagamento.';
+        statusMessage.classList.add('is-warning');
+        return;
+        }
 
-            confirmButton.disabled = true;
-            confirmButton.classList.add('is-loading');
-            statusMessage.textContent = 'Registrando sua confirmação...';
-            statusMessage.classList.remove('is-warning');
+        confirmButton.disabled = true;
+        confirmButton.classList.add('is-loading');
+        statusMessage.textContent = 'Registrando sua confirmação...';
+        statusMessage.classList.remove('is-warning');
 
-            const payload = {
-                status: 'paid',
-                page: 'payment-confirmation',
-                timestamp: new Date().toISOString()
-            };
+        // Payload enviado para o N8N
+        const payload = {
+        status: 'paid_request',              // cliente clicou em "paguei"
+        origem: 'site',                     // veio do site, não do Mercado Pago
+        page: 'payment-confirmation',
+        timestamp: new Date().toISOString()
+        };
 
-            const body = JSON.stringify(payload);
-            const blob = new Blob([body], { type: 'application/json' });
-            const beaconSent = navigator.sendBeacon && navigator.sendBeacon(webhookUrl, blob);
+        const body = JSON.stringify(payload);
+        const blob = new Blob([body], { type: 'application/json' });
+        const beaconSent = navigator.sendBeacon && navigator.sendBeacon(webhookUrl, blob);
 
-            const finalize = (success) => {
-                confirmButton.disabled = false;
-                confirmButton.classList.remove('is-loading');
-                statusMessage.textContent = success
-                    ? 'Confirmação registrada! Em breve você receberá o contato.'
-                    : 'Não foi possível enviar agora. Tente novamente em instantes.';
-                statusMessage.classList.toggle('is-success', success);
-                statusMessage.classList.toggle('is-error', !success);
-            };
+        const finalize = (success) => {
+        confirmButton.disabled = false;
+        confirmButton.classList.remove('is-loading');
+        statusMessage.textContent = success
+            ? 'Confirmação registrada! Em breve você receberá o contato.'
+            : 'Não foi possível enviar agora. Tente novamente em instantes.';
+        statusMessage.classList.toggle('is-success', success);
+        statusMessage.classList.toggle('is-error', !success);
+        };
 
-            if (beaconSent) {
-                finalize(true);
-                return;
-            }
+        // Se o sendBeacon funcionou, já consideramos OK
+        if (beaconSent) {
+        finalize(true);
+        return;
+        }
 
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body
-            })
-                .then(response => finalize(response.ok))
-                .catch(() => finalize(false));
-        });
+        // Fallback com fetch
+        fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body
+        })
+        .then(response => finalize(response.ok))
+        .catch(() => finalize(false));
+    });
     </script>
+
 </body>
 </html>
