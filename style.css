@@ -1465,3 +1465,136 @@ h6 {
 .footer li {
     color: #ccc;
 }
+
+/* Payment Page */
+.payment-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-dark);
+}
+
+.payment-header {
+    padding: 24px 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.payment-logo img {
+    max-height: 72px;
+}
+
+.payment-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 20px 48px;
+}
+
+.payment-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    padding: 32px 24px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.payment-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+}
+
+.payment-card h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.payment-subtitle {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.payment-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.payment-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-light);
+}
+
+.payment-period {
+    color: #ccc;
+    font-size: 1rem;
+}
+
+.payment-features {
+    list-style: none;
+    text-align: left;
+    display: grid;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.payment-features i {
+    color: var(--primary);
+    margin-right: 8px;
+}
+
+.payment-cta {
+    width: 100%;
+    justify-content: center;
+}
+
+.payment-note {
+    margin-top: 12px;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.payment-help {
+    margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.payment-help:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 480px) {
+    .payment-card {
+        padding: 28px 20px;
+    }
+
+    .payment-card h1 {
+        font-size: 1.8rem;
+    }
+
+    .payment-value {
+        font-size: 2.1rem;
+    }
+}
