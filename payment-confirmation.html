@@ -69,11 +69,11 @@
         const webhookUrl = confirmButton.dataset.webhook;
 
         // Validação básica: precisa ter a URL real do n8n
-        if (!webhookUrl || webhookUrl.includes('https://iangta10.app.n8n.cloud/webhook-test/c18802a5-7956-4d39-9f39-e2fef92b38bc')) {
-        statusMessage.textContent = 'Configure a URL do webhook do N8N para registrar este pagamento.';
-        statusMessage.classList.add('is-warning');
-        return;
-        }
+            if (!webhookUrl) {
+            statusMessage.textContent = 'Configure a URL do webhook do N8N para registrar este pagamento.';
+            statusMessage.classList.add('is-warning');
+            return;
+            }
 
         confirmButton.disabled = true;
         confirmButton.classList.add('is-loading');
